@@ -1,6 +1,6 @@
 <?php
    
-    class PeliculaModel {
+    class showHomeModel {
 
         private $db;
         
