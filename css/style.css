@@ -1,0 +1,22 @@
+.logo{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 20px;
+    
+}
+h1{
+    color:red;
+    margin-top: 40px;
+}
+header{
+    background:white;
+}
+
+body{
+    background-color: aqua;
+}
+
+.container-logo{
+    display: flex;
+}
