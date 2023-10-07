@@ -15,7 +15,7 @@ class PeliculaController{
 
 
     function mostrarHome(){
-        
+        $this->view->mostrarHome();
     }
 
 }

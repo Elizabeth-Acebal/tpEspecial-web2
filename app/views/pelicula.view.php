@@ -1,22 +1,21 @@
 <?php
+ require_once 'libs/smarty-4.3.4/libs/Smarty.class.php';
 
     class PeliculaView {
-
+        private $smarty;
      
-
+        public function __construct() {
+            $this->smarty = new Smarty(); //inicializo smarty
+           // $this->smarty->assign('user', $user);
+            }
         
     function mostrarHome(){
-        require 'templates/header.phtml';
+      
+            $this->smarty->display('templates/home.tpl');   
+        
 
-
-
-
-
-
-
-
-
-        require 'templates/footer.phtml';
+       
+    
     }
 
     }
