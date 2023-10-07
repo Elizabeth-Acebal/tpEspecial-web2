@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-09-2023 a las 22:34:04
+-- Tiempo de generación: 07-10-2023 a las 20:45:23
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -70,6 +70,18 @@ INSERT INTO `peliculas` (`peliculas_id`, `titulo`, `descripcion`, `director`, `c
 (4, 'LA MONJA 2', '1956, Francia. Un sacerdote es asesinado, un mal se extiende y la hermana Irene se enfrenta de nuevo a la fuerza malévola de Valak, la monja demonio', 'Michael Chaves', 'Apta para mayores de 13 años', 6),
 (5, 'SONIDO DE LIBERTAD', 'Sonido De Libertad, basada en una increíble historia real, trae luz y esperanza al obscuro mundo del tráfico de menores. Después de rescatar a un niño de los traficantes, un agente federal descubre que la hermana del niño todavía está cautiva y decide embarcarse en una peligrosa misión para salvarla. Con el tiempo en su contra, renuncia a su trabajo y se adentra en lo profundo de la selva colombiana, poniendo su vida en riesgo para liberarla y traerla de vuelta a casa.', 'Alejandro Monteverde', 'Apta para mayores de 13 años', 4);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(45) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(600) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -88,6 +100,12 @@ ALTER TABLE `peliculas`
   ADD KEY `fk_peliculas_género` (`id_género`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -102,6 +120,12 @@ ALTER TABLE `géneros`
 --
 ALTER TABLE `peliculas`
   MODIFY `peliculas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(45) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

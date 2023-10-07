@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="image/banner3.jpg" class="d-block w-50" alt="...">
+      <img src="image/banner4.jpg" class="d-block w-50" alt="...">
       <div class="carousel-caption d-none d-md-block">
       </div>
     </div>
