@@ -22,4 +22,5 @@ class AuthHelper {
     return $_SESSION;
     }
 }
+
 ?>

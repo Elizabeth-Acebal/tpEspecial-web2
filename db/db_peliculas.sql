@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2023 a las 22:04:10
+-- Tiempo de generación: 10-10-2023 a las 22:11:58
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -87,7 +87,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `email`, `password`) VALUES
-(1, 'joelestebanpugliese@gmail.com', '12345');
+(1, 'joelestebanpugliese@gmail.com', '$2y$10$fE05AF6PDkCutPdLvqCp4eq.eR7sWh24m39u4qiY3WNr6Jc3sBqK2');
 
 --
 -- Índices para tablas volcadas
