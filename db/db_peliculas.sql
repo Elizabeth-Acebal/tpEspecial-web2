@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2023 a las 20:45:23
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 10-10-2023 a las 22:04:10
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,13 +82,12 @@ CREATE TABLE `usuario` (
   `password` varchar(600) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
 --
--- Volcado de datos para la tabla `peliculas`
+-- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO 'usuario'('id_usuario', 'email', 'password')
-VALUES(1, 'joelestebanpugliese@gmail.com', '12345');
+INSERT INTO `usuario` (`id_usuario`, `email`, `password`) VALUES
+(1, 'joelestebanpugliese@gmail.com', '12345');
 
 --
 -- Índices para tablas volcadas
@@ -133,7 +132,7 @@ ALTER TABLE `peliculas`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(45) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
