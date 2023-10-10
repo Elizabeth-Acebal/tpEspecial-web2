@@ -82,6 +82,14 @@ CREATE TABLE `usuario` (
   `password` varchar(600) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+--
+-- Volcado de datos para la tabla `peliculas`
+--
+
+INSERT INTO 'usuario'('id_usuario', 'email', 'password')
+VALUES(1, 'joelestebanpugliese@gmail.com', '12345');
+
 --
 -- Índices para tablas volcadas
 --

@@ -1,7 +1,11 @@
 .img-fluid {
     max-width: 50%;
-    }
+  }
 
+.carousel-inner{
+  text-align: center;
+
+}
 
   img.logo{
     height: 50px;
