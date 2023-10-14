@@ -12,10 +12,12 @@ class GeneroController{
         $this->model = new GeneroModel();
         $this->view = new PeliculaView();
     }
-
-
-    function mostrarHome(){
-        $this->view->mostrarHome();
-    }
+  // obtiene la lista de generos de la DB.
+  function getGeneros() {
+    $query = $this->db->prepare('SELECT * FROM generos');
+    $query->execute();
+    $generos = $query->fetchAll(PDO::FETCH_OBJ);
+    return $generos;
+}
 
 }
