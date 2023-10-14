@@ -4,7 +4,8 @@
 class GeneroModel{
 
     private $db;
-
+        
+        
     function __construct(){
         //LE PASO AL CONSTRUCTOR LA FUNCION DE CONECTAR A LA DB, asi cada vez que 
         //LA USO LA CONEXION ESTA ABIERTA POR EL CONSTRUCTOR.

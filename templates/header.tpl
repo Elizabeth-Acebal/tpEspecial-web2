@@ -8,8 +8,6 @@
     <title>Peliculas online</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">  
-  
-
 </head>
 <body class="p-3 mb-2 bg-dark text-white">
 
@@ -33,13 +31,13 @@
                         <li class="nav-item">
                            <a class="nav-link  text-white bg-dark" href="peliculas">Peliculas</a>
                         </li>
-                        {if !isset($smarty.session.USER_ID)}
+                        {if !isset($smarty.session.USUARIO_ID)}
                             <li class="nav-item">
-                                <a class="nav-link  text-white bg-dark" aria-current="page" href="login">Iniciar Sesión</a>
+                                <a class="nav-link  text-white " aria-current="page" href="login">Iniciar Sesión</a>
                             </li>
                         {else}
                             <li class="nav-item ml-auto">
-                                <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.USER_EMAIL})</a>
+                                <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.EMAIL_USUARIO})</a>
                             </li>
                         {/if}
 
@@ -50,7 +48,8 @@
         </nav>
   
     </header>
-
+      <!-- inicio main container -->
+<main class="container">
 
        
        
