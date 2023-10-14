@@ -1,7 +1,11 @@
 <?php
     require_once 'app/controllers/showHome.controller.php';
+    require_once 'app/controllers/pelicula.controller.php';
+    require_once 'app/controllers/auth.controller.php';
+
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+define("LOGIN", BASE_URL . 'login');
 
 $action = 'home'; // accion por defecto
 if (!empty( $_GET['action'])) {
@@ -17,21 +21,61 @@ if (!empty( $_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
+    case 'login':
+        $controller = new AuthController;
+        $controller->showLogin();
+        break;
+    case 'verify':
+        $controller = new AuthController();
+        $controller->loginUser();
+        break;
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
+        break;
     case 'home':
         $controller = new ShowHomeController;
         $controller->mostrarHome();
         break;
         case 'peliculas':
             $controller = new PeliculaController;
-          //  $controller->mostrarHome();
+            $controller->showPeliculas();
+            break;
+        case 'peliculaDetalles':
+            $controller = new PeliculaController();
+            $id=$params[1];
+            $controller->ShowPeliculaDetalle($id);
+            break;
+        case 'peliculasPorGenero':
+                $controller = new PeliculaController();
+                $id = $params[1];
+                $controller->showPeliculasPorGenero($id);
+                break;
+    case 'agregarPelicula':
+        $controller = new PeliculaController;
+        $controller->agregarPelicula();
+        break;
+    case 'eliminarPelicula':
+        $controller = new PeliculaController();
+        $id = $params[1];
+        $controller->eliminarPelicula($id);
+        break;
+
+    case 'editarPelicula':
+        $controller = new PeliculaController();
+        $id=$params[1];
+        $controller->editarPelicula($id);
+        break;
+        case 'formEditarPelicula':
+            $controller = new PeliculaController();
+            // obtengo el parametro de la acción   
+            $controller->showFormPelicula();
+            $id = $params[1];
+            $controller->editarPelicula($id);
             break;
 
-    case 'agregar':
-       // showAgregarPagos();
-        break;
-    case 'eliminar':
-      //  eliminarPago($params[1]);
-        break;
+
+    
     
     default: 
         echo "404 Page Not Found";

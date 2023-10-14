@@ -4,12 +4,15 @@ class UsuarioModel {
 
     private $db;
 
-    public function __construct() {
+    function __construct() {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_peliculas;charset=utf8', 'root', '');
     }
 
-    public function getUsuarioByEmail($email) {
-        $query = $this->db->prepare("SELECT * FROM `usuario` WHERE `email` = ?");
+     /**
+     * Retorna un usuario según el email pasado.
+     */
+    public function getByEmail($email) {
+        $query = $this->db->prepare("SELECT * FROM usuarios WHERE email = ?");
         $query->execute([$email]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
