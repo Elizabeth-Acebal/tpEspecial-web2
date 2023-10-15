@@ -1,8 +1,10 @@
+
 <?php 
+require_once 'config.php';
 
 class PeliculaModel{
 
-    private $db;
+    protected $db;
         
         
     function __construct(){
@@ -14,8 +16,23 @@ class PeliculaModel{
     //ABRE LA CONEXION A LA BASE DE DATOS
     //solo se puede llamar el mismo , nadie de afuera se va a conectar por eso el private.
     private function getConection() {
-        return new PDO('mysql:host=localhost;dbname=db_peliculas;charset=utf8', 'root', '');
+        return new PDO("mysql:host=".MYSQL_HOST.";dbname=".MYSQL_DB.";charset=utf8", 
+        MYSQL_USER, MYSQL_PASS);
+        $this->deploy();
+        
     }
+
+    private function deploy() {
+        $query = $this->db->query('SHOW TABLES');
+        $tables = $query->fetchAll();
+        if(count($tables) == 0) {
+            $sql =<<<END
+    
+            END;
+            $this->db->query($sql);
+        }
+    }
+
 
         // obtiene la lista de peliculas de la DB.
     function getPeliculas() {

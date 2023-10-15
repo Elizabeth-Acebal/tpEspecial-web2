@@ -1,7 +1,6 @@
 <?php
-
-
-class GeneroModel{
+require_once 'config.php';
+ class GeneroModel{
 
     private $db;
         
@@ -14,17 +13,36 @@ class GeneroModel{
     }
     //ABRE LA CONEXION A LA BASE DE DATOS
     //solo se puede llamar el mismo , nadie de afuera se va a conectar por eso el private.
-   private function getConection() {
-        return new PDO('mysql:host=localhost;dbname=db_peliculas;charset=utf8', 'root', '');
+    private function getConection() {
+        return new PDO("mysql:host=".MYSQL_HOST .
+        ";dbname=".MYSQL_DB.";charset=utf8", 
+        MYSQL_USER, MYSQL_PASS);
+        $this->deploy();
+        
     }
 
-     // obtiene la lista de generos de la DB.
-  function getGeneros() {
-    $query = $this->db->prepare('SELECT * FROM generos');
-    $query->execute();
-    $generos = $query->fetchAll(PDO::FETCH_OBJ);
-    return $generos;
-}
+    private function deploy() {
+        $query = $this->db->query('SHOW TABLES');
+        $tables = $query->fetchAll();
+        if(count($tables) == 0) {
+            $sql =<<<END
+    
+            END;
+            $this->db->query($sql);
+        }
+    }
+
+    public function getGeneros(){
+        // 1. abro conexión a la DB
+        // ya esta abierta por el constructor de la clase
+        // 2. ejecuto la sentencia (2 subpasos)
+        $query = $this->db->prepare("SELECT * FROM  `generos`");
+        $query->execute();
+        // 3. obtengo los resultados
+        $generos = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+
+        return $generos;
+    }
 
 public function agregarGenero($genero) {
     $query = $this->db->prepare("INSERT INTO generos (genero) VALUES (?)");
@@ -32,10 +50,6 @@ public function agregarGenero($genero) {
     return $this->db->lastInsertId();
 }
 
-function eliminarGenero($genero_id) {
-    $query = $this->db->prepare('DELETE FROM generos WHERE genero_id = ?');
-    $query->execute([$genero_id]);
-}
 
 function editarGenero($genero, $id_genero ){
     $query = $this->db->prepare("UPDATE generos SET `genero`=? WHERE 'id_genero'=?");
