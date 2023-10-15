@@ -1,5 +1,5 @@
 <?php
-
+require_once 'config.php';
  class GeneroModel{
 
     private $db;
@@ -14,7 +14,10 @@
     //ABRE LA CONEXION A LA BASE DE DATOS
     //solo se puede llamar el mismo , nadie de afuera se va a conectar por eso el private.
     private function getConection() {
-        return new PDO('mysql:host=localhost;dbname=db_peliculas;charset=utf8', 'root', '');
+        return new PDO("mysql:host=".MYSQL_HOST .
+        ";dbname=".MYSQL_DB.";charset=utf8", 
+        MYSQL_USER, MYSQL_PASS);
+        
     }
 
 
