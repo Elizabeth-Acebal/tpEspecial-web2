@@ -1,23 +1,53 @@
 <?php
 include_once 'app/models/genero.model.php';
-include_once 'app/views/pelicula.view.php';
+include_once 'app/views/genero.view.php';
+include_once 'app/models/pelicula.model.php';
+include_once 'app/helpers/auth.helper.php';
 
 class GeneroController{
 
-    private $model;
-    private $view;
+    private $PeliculaModel;
+    private $GeneroView;
+    private $GeneroModel;
+    private $AuthHelper;
 
     //CREO EL CONSTRUCTOR
     function __construct(){
-        $this->model = new GeneroModel();
-        $this->view = new PeliculaView();
+        $this->PeliculaModel= new PeliculaModel();
+        $this->GeneroView = new PeliculaView();
+        $this->GeneroModel= new GeneroModel();
+        $this->AuthHelper=new AuthHelper();
     }
-  // obtiene la lista de generos de la DB.
-  function getGeneros() {
-    $query = $this->db->prepare('SELECT * FROM generos');
-    $query->execute();
-    $generos = $query->fetchAll(PDO::FETCH_OBJ);
-    return $generos;
-}
+    function showGeneros(){
+        $peliculas= $this->PeliculaModel->getPeliculas();
+        $generos=$this->GeneroModel->getGeneros();
+        $this->GeneroView->showGeneros( $generos,$peliculas);
+
+    }
+    function agregarGenero() {
+        // TODO: validar entrada de datos
+        if ((isset($_POST['genero' ]))  ) {
+            $genero = $_POST['genero'];
+            $id = $this->GeneroModel->agregarGenero($genero);
+            header("Location: " . BASE_URL . "generos");
+
+
+        }
+    }
+    function eliminarGenero($id_genero) {
+    $this->AuthHelper->checkLogged();   //BARRERA DE SEGURIDAD
+    $this->GeneroModel->eliminarGenero($id_genero);
+    header("Location: " . BASE_URL . "generos");
+    }
+
+    function editarGenero($id_genero){
+
+        if ((isset($_POST['genero'])) ) {
+        
+            $genero = $_POST['genero'];
+            $this->GeneroModel->editarGenero($genero, $id_genero);
+            header("Location: " . BASE_URL . "generos");
+        }
+    }
 
 }
