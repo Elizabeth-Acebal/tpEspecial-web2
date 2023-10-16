@@ -95,8 +95,7 @@ switch ($params[0]) {
         $controller->editarGenero($id);
         break;
     case 'formEditarGenero':
-        $controller = new GeneroController();
-                // obtengo el parametro de la acción   
+        $controller = new GeneroController(); 
         $controller->showFormGenero();
         $id = $params[1];
         $controller->editarGenero($id);

@@ -25,17 +25,14 @@ class GeneroController{
 
     }
 
-    function showFormGenero(){
-        // verifico que el usuario esté logueado siempre.
-       // $this->AuthHelper->checkLogged();//VER ESTOOOOOOOO
-        
+    function showFormGenero(){  
         $generos = $this->GeneroModel->getGeneros();
         $this->GeneroView->showFormGenero($generos);
     }
 
     function agregarGenero() {
         // TODO: validar entrada de datos
-        if ((isset($_POST['genero' ]))  ) {
+        if ((isset($_POST['genero' ] ))  ) {
             $genero = $_POST['genero'];
             $id = $this->GeneroModel->agregarGenero($genero);
             header("Location: " . BASE_URL . "generos");
