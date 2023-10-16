@@ -14,7 +14,7 @@ class GeneroController{
     //CREO EL CONSTRUCTOR
     function __construct(){
         $this->PeliculaModel= new PeliculaModel();
-        $this->GeneroView = new PeliculaView();
+        $this->GeneroView = new GeneroView();
         $this->GeneroModel= new GeneroModel();
         $this->AuthHelper=new AuthHelper();
     }
@@ -24,9 +24,15 @@ class GeneroController{
         $this->GeneroView->showGeneros($generos,$peliculas);
 
     }
+
+    function showFormGenero(){  
+        $generos = $this->GeneroModel->getGeneros();
+        $this->GeneroView->showFormGenero($generos);
+    }
+
     function agregarGenero() {
         // TODO: validar entrada de datos
-        if ((isset($_POST['genero' ]))  ) {
+        if ((isset($_POST['genero' ] ))  ) {
             $genero = $_POST['genero'];
             $id = $this->GeneroModel->agregarGenero($genero);
             header("Location: " . BASE_URL . "generos");

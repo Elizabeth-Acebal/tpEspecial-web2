@@ -27,7 +27,9 @@
                         <li class="nav-item">
                            <a class="nav-link active text-white bg-dark" href="home">Home</a>
                         </li>
-                    
+                          <li class="nav-item">
+                           <a class="nav-link active text-white bg-dark" href="generos">Géneros</a>
+                        </li>
                         <li class="nav-item">
                            <a class="nav-link  text-white bg-dark" href="peliculas">Peliculas</a>
                         </li>

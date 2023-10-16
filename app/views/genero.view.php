@@ -20,9 +20,8 @@
             $this->smarty->display('templates/showGeneros.tpl');
         }
 
-        function showFormGenero($peliculas,$generos) {
+        function showFormGenero($generos) {
             // asigno variables al tpl smarty
-            $this->smarty->assign('peliculas', $peliculas);
             $this->smarty->assign('generos', $generos);
             // mostrar el tpl
             $this->smarty->display('templates/editarGenero.tpl');

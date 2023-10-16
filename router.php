@@ -76,6 +76,10 @@ switch ($params[0]) {
         $id = $params[1];
         $controller->editarPelicula($id);
         break;
+    case 'generos':
+        $controller = new GeneroController;
+        $controller->showGeneros();
+        break;
     case 'agregarGenero':
         $controller = new GeneroController;
         $controller->agregarGenero();
@@ -90,6 +94,12 @@ switch ($params[0]) {
         $id=$params[1];
         $controller->editarGenero($id);
         break;
+    case 'formEditarGenero':
+        $controller = new GeneroController(); 
+        $controller->showFormGenero();
+        $id = $params[1];
+        $controller->editarGenero($id);
+        break;   
 
     default: 
         echo "404 Page Not Found";
