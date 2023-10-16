@@ -41,7 +41,10 @@
              // mostrar el tpl
             $this->smarty->display('templates/peliculaDetalle.tpl');
         }
-
+        
+        function showError($error){
+            $this->smarty->display('templates/error.tpl');
+        } 
    
         
     }

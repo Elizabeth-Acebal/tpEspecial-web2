@@ -39,16 +39,28 @@
     }
 
     function agregarPelicula() {
+        $titulo = $_POST['titulo'];
+        $descripcion = $_POST['descripcion'];
+        $director = $_POST['director'];
+        $calificacion = $_POST['calificacion'];
+        $id_genero = $_POST['id_genero'];
         // TODO: validar entrada de datos
-        if ((isset($_POST['titulo'])) && (isset($_POST['descripcion'])) && (isset($_POST['director'])) && (isset($_POST['calificacion']))    ) {
-            $titulo = $_POST['titulo'];
-            $descripcion = $_POST['descripcion'];
-            $director = $_POST['director'];
-            $calificacion = $_POST['calificacion'];
-            $id_genero = $_POST['id_genero'];
-            $id = $this->PeliculaModel->agregarPelicula($titulo, $descripcion, $director,$calificacion,$id_genero);
-            header("Location: " . BASE_URL . "peliculas");
+        if ((empty($_POST['titulo'])) || (empty($_POST['descripcion'])) || (empty($_POST['director'])) || (empty($_POST['calificacion']))    ) {
+            $this->PeliculaView->showError("debe completar todos los campos");
+            return;
+           
         }
+        $id = $this->PeliculaModel->agregarPelicula($titulo, $descripcion, $director,$calificacion,$id_genero);
+               
+        if($id){
+            header("Location: " . BASE_URL . "peliculas");  
+        }else{
+            $this->PeliculaView->showError("Error al insertar la tarea");
+        }
+
+
+
+        
     }
     
     function eliminarPelicula($pelicula_id) {
