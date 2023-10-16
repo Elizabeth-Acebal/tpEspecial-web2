@@ -1,7 +1,7 @@
 <?php
     require_once 'libs/smarty-4.3.4/libs/Smarty.class.php';
 
-    class PeliculaView{
+    class GeneroView{
 
         private $smarty;
         
@@ -13,7 +13,7 @@
     
         function showGeneros($generos,$peliculas){
              // asigno variables al tpl smarty
-             $this->smarty->assign('generos', $generos);
+            $this->smarty->assign('generos', $generos);
             $this->smarty->assign('peliculas', $peliculas);
             
             // mostrar el tpl
