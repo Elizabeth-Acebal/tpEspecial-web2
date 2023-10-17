@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2023 a las 19:45:26
+-- Tiempo de generación: 17-10-2023 a las 05:17:45
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -64,9 +64,14 @@ CREATE TABLE `peliculas` (
 --
 
 INSERT INTO `peliculas` (`pelicula_id`, `titulo`, `descripcion`, `director`, `calificacion`, `id_genero`) VALUES
-(1, 'LOS INDESTRUCTIBLES 4', 'Cuarta entrega de la saga de \"Los mercenarios\". El veterano mercenario Barney “Esquizo” Ross (Sylvester Stallone) y su equipo de estrellas, formado por los hombres más duros (Jason Statham, Dolph Lundgren, 50 Cent, Megan Fox…), afrontan un nuevo desafío, en una trama cargada de acción. Para superarlo y salir airosos, deberán recurrir a su ingenio, experiencia y a la fuerza bruta que los caracteriza', 'Scott Waugh', 'Apta para mayores de 13 años', 1),
-(8, 'no me rompan', 'drtj', 'jkl', 'fghjm,', 1),
-(9, 'no me rompanvsvsx', 'drtj', 'scdc', 'dcdsv', 3);
+(12, 'EL EXORSISTA', 'Hace exactamente 50 años este otoño, la película de terror más aterradora de la historia llegó a las pantallas, impactando a la audiencia de todo el mundo. Este año, en octubre, comienza un nuevo capítulo. De Blumhouse y el director David Gordon Green, quienes rompieron el statu quo con la resurrección de la franquicia de Halloween, llega \"El Exorcista: Creyentes\".', 'David Gordon Green', 'Apta para mayores de 13 años con reservas', 6),
+(13, 'SONIDO DE LIBERTAD', 'Sonido De Libertad, basada en una increíble historia real, trae luz y esperanza al obscuro mundo del tráfico de menores. Después de rescatar a un niño de los traficantes, un agente federal descubre que la hermana del niño todavía está cautiva y decide embarcarse en una peligrosa misión para salvarla. Con el tiempo en su contra, renuncia a su trabajo y se adentra en lo profundo de la selva colombiana, poniendo su vida en riesgo para liberarla y traerla de vuelta a casa.', 'Alejandro Monteverde', 'Apta para mayores de 13 años con reservas', 4),
+(14, 'PAW PATROL: LA SUPER PELICULA', 'Cuando un meteorito mágico aterriza en Adventure City, otorga superpoderes a los cachorros de PAW Patrol, ¡transformándolos en los SÚPER CACHORROS! Para Skye, la más pequeña del equipo, sus nuevos poderes son un sueño hecho realidad. Pero las cosas empeoran cuando el archirrival de los cachorros, Humdinger, escapa de la cárcel y se une a una científica loca para robarles los superpoderes. Con el destino de Adventure City en juego, los Súper Cachorros deberán detener a los supervillanos antes de que sea demasiado tarde, y Skye deberá aprender que incluso el cachorro más pequeño puede marcar la diferencia.', 'Callan Brunker', 'Apta para todo publico', 2),
+(15, 'LA MONJA', '1956, Francia. Un sacerdote es asesinado, un mal se extiende y la hermana Irene se enfrenta de nuevo a la fuerza malévola de Valak, la monja demonio.', 'Michael Chaves', 'Apta para mayores de 13 años con reservas', 6),
+(16, 'EL JUSTICIERO', 'Desde que renunció a su vida como asesino del gobierno, Robert McCall (Denzel Washington) ha luchado por reconciliarse con las horribles cosas que hizo en el pasado y encuentra un extraño consuelo en servir a la justicia en nombre de los oprimidos. Encontrándose sorpresivamente en su casa en el sur de Italia, descubre que sus nuevos amigos están bajo el control de los jefes del crimen local. Cuando los acontecimientos se tornan mortales, McCall sabe lo que tiene que hacer: convertirse en el protector de sus amigos enfrentándose a la mafia.', 'Antoine Fuqua', 'Apta para mayores de 16 años', 1),
+(17, 'DISNEY 100: TOY STORY', 'Ambientado en un mundo donde los juguetes tienen vida propia, esta historia está vista a través de dos juguetes: Woody (Tom Hanks), un vaquero parlante a cuerda, y Buzz Lightyear (Tim Allen), una heroica figura de acción especial. El cómico dúo finalmente aprende a dejar de lado sus diferencias cuando se separan de su dueño, Andy, y se encuentran en una desopilante misión llena de aventuras…donde solo sobrevivirán si forman una alianza.', 'Disney', 'Apta para todo publico', 2),
+(21, 'PUAN', 'Marcelo ha dedicado su vida a la enseñanza de filosofía en la Universidad de Buenos Aires. Cuando el Profesor Caselli, su mentor, muere inesperadamente, Marcelo asume que heredará la posición de titular de Cátedra que ha quedado vacante. Lo que no imagina es que Rafael Sujarchuk, un carismático y seductor colega, regresará de su pedestal en las universidades europeas para disputar esa misma Cátedra. Los torpes esfuerzos de Marcelo por demostrar que es el mejor candidato desencadenarán un duelo filosófico, mientras su vida y el país entran en un espiral de caos. Cuando el Profesor Caselli, su mentor, muere inesperadamente, Marcelo asume que heredará el puesto vacante. Sin embargo Rafael, un carismático colega, regresa de Europa para disputar esa misma Cátedra. Los torpes esfuerzos de Marcelo por demostrar que es el mejor candidato desencadenarán un duelo filosófico, mientras su vida y el país entran en un espiral de caos.', 'María Alché & Benjamín Naishtat', 'Apta para todo publico', 5),
+(23, 'INFINITY POOL', 'El trailer muestra a un escritor y su pareja de vacaciones en una isla paradisíaca, donde se topan con una fanática que menciona que lleva años esperando por su segundo libro, pero él parece estar bloqueado.', ' Brandon Cronenberg', 'Apta para mayores de 13 años con reservas', 3);
 
 -- --------------------------------------------------------
 
@@ -118,13 +123,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
-  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `pelicula_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `pelicula_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
