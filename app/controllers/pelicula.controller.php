@@ -46,7 +46,7 @@
         $id_genero = $_POST['id_genero'];
         // TODO: validar entrada de datos
         if ((empty($_POST['titulo'])) || (empty($_POST['descripcion'])) || (empty($_POST['director'])) || (empty($_POST['calificacion']))    ) {
-            $this->PeliculaView->showError("debe completar todos los campos");
+            $this->PeliculaView->showError("Debe completar todos los campos");
             return;
         }
         $id = $this->PeliculaModel->agregarPelicula($titulo, $descripcion, $director,$calificacion,$id_genero);

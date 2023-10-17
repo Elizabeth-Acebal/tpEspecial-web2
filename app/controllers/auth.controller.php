@@ -24,6 +24,7 @@ class AuthController {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
+
     /**COMPRUEBO QUE NO ESTEN VACIOS */
         if (empty($email) || empty($password)) {
             $this->view->showFormLogin('Faltan datos obligatorios');
@@ -39,9 +40,9 @@ class AuthController {
 
             //ARMO LA SESION DEL USUARIO
             
-           // session_start();
+            session_start();
             $_SESSION['USUARIO_ID'] = $usuario->id_usuario;
-            $_SESSION['EMAIL'] = $usuario->email;
+            $_SESSION['EMAIL'] = $usuario->email;  
             $_SESSION['IS_LOGGED'] = true;
 
             header('Location: ' . BASE_URL . 'peliculas');
@@ -52,8 +53,9 @@ class AuthController {
     }
 
     function logout() {
+        session_start();
         session_destroy();
-        header('Location: ' . BASE_URL . "login");    
+        header('Location: '  . LOGIN);    
     }
 
 }
