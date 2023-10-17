@@ -22,7 +22,6 @@ class GeneroController{
         $peliculas= $this->PeliculaModel->getPeliculas();
         $generos=$this->GeneroModel->getGeneros();
         $this->GeneroView->showGeneros($generos,$peliculas);
-
     }
 
     function showFormGenero(){  
@@ -36,10 +35,9 @@ class GeneroController{
             $genero = $_POST['genero'];
             $id = $this->GeneroModel->agregarGenero($genero);
             header("Location: " . BASE_URL . "generos");
-
-
         }
     }
+
     function eliminarGenero($id_genero) {
     $this->AuthHelper->checkLogged();   //BARRERA DE SEGURIDAD
     $this->GeneroModel->eliminarGenero($id_genero);
@@ -47,9 +45,7 @@ class GeneroController{
     }
 
     function editarGenero($id_genero){
-
         if ((isset($_POST['genero'])) ) {
-        
             $genero = $_POST['genero'];
             $this->GeneroModel->editarGenero($genero, $id_genero);
             header("Location: " . BASE_URL . "generos");

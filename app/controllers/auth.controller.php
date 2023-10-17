@@ -16,17 +16,15 @@ class AuthController {
     }
 
     public function showLogin() {
-        $this->view->showFormLogin();
-            
-        
+        $this->view->showFormLogin();    
     }
 
     /**RECIBO LA INF DEL USUARIO */
-    public function loginUser() {  //validateuser
+    public function loginUser() {  
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-/**COMPRUEBO QUE NO ESTEN VACIOS */
+    /**COMPRUEBO QUE NO ESTEN VACIOS */
         if (empty($email) || empty($password)) {
             $this->view->showFormLogin('Faltan datos obligatorios');
 
@@ -53,9 +51,7 @@ class AuthController {
         }
     }
 
-
     function logout() {
-    
         session_destroy();
         header('Location: ' . BASE_URL . "login");    
     }

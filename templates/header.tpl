@@ -27,8 +27,8 @@
                         <li class="nav-item">
                            <a class="nav-link active text-white bg-dark" href="home">Home</a>
                         </li>
-                          <li class="nav-item">
-                           <a class="nav-link active text-white bg-dark" href="generos">Géneros</a>
+                        <li class="nav-item">
+                           <a class="nav-link  text-white bg-dark" href="generos">Géneros</a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link  text-white bg-dark" href="peliculas">Peliculas</a>
@@ -39,7 +39,7 @@
                             </li>
                         {else}
                             <li class="nav-item ml-auto">
-                                <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.EMAIL_USUARIO})</a>
+                                <a class="nav-link text-white" aria-current="page" href="logout">Cerrar Sesión</a>
                             </li>
                         {/if}
 

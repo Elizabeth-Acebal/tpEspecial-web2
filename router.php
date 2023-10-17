@@ -12,15 +12,6 @@ if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// home   ->        mostrarHome();
-// agregar   ->     showAgregarPago();
-// eliminar/:ID  -> eliminarPago($id); 
-// login ->         showFormLogin();
-// logout ->        logout();
-//validar ->        validateUser();
-
-
-
 // parsea la accion para separar accion real de parametros
 $params = explode('/', $action);
 
@@ -43,7 +34,7 @@ switch ($params[0]) {
         break;
     case 'peliculas':
         $controller = new PeliculaController;
-        $controller->showPeliculas();
+        $controller->showCartelera();
         break;
     case 'peliculaDetalles':
         $controller = new PeliculaController();

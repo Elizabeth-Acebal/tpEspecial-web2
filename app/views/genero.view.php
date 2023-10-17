@@ -7,8 +7,7 @@
         
         public function __construct() {
             $this->smarty = new Smarty(); //inicializo smarty
-           // $this->smarty->assign('usuario', $usuario);
-        
+    
             }
     
         function showGeneros($generos,$peliculas){
