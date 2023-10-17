@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-{include file="header.tpl"}
-    <title>Error</title>
-</head>
-<body>
-    <h1>Error:</h1>
-    <p>{$error}</p>
 
-</body>
-</html>
+    <h1>Error:</h1>
+   <p class="parrafo p-3 mb-2 bg-danger text-white">{$error}</p>
+
+
 
 
 

@@ -44,17 +44,21 @@ class GeneroController{
         }    
     }
 
-    function eliminarGenero($id_genero) {
+    function eliminarGenero($id_genero, $pelicula_id) {
     $this->AuthHelper->checkLogged();   //BARRERA DE SEGURIDAD
-    $this->GeneroModel->eliminarGenero($id_genero);
+    $this->GeneroModel->eliminarGenero($id_genero, $pelicula_id);
     header("Location: " . BASE_URL . "generos");
     }
 
     function editarGenero($id_genero){
+       
         if ((isset($_POST['genero'])) ) {
             $genero = $_POST['genero'];
             $this->GeneroModel->editarGenero($genero, $id_genero);
             header("Location: " . BASE_URL . "generos");
+        }else{
+            $this->GeneroView->showError("Debe completar todos los campos");
+            return;
         }
     }
 

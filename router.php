@@ -77,8 +77,8 @@ switch ($params[0]) {
         break;
     case 'eliminarGenero':
         $controller = new GeneroController();
-        $id = $params[1];
-        $controller->eliminarGenero($id);
+        $id = $params[2];
+        $controller->eliminarGenero($id, $id);
         break;
     case 'editarGenero':
         $controller = new GeneroController();

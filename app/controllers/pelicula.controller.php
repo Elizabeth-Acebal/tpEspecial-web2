@@ -73,8 +73,11 @@
             $calificacion = $_POST['calificacion'];
             $id_genero = $_POST['id_genero'];
             $this->PeliculaModel->editarPelicula($titulo, $descripcion, $director, $calificacion, $id_genero, $pelicula_id);
-            header("Location: " . BASE_URL . "peliculas");
-        }
+            header("Location: " . BASE_URL . "peliculas");        
+        }       
+      
+         
+        
     }
 
     public function showPeliculasPorGenero($id_genero){
