@@ -59,6 +59,7 @@ require_once 'config.php';
     function eliminarGenero($id_genero) {
         $query = $this->db->prepare('DELETE FROM generos WHERE id_genero = ?');
         $query->execute([$id_genero]);
+        
     }
 
 

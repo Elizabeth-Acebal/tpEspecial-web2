@@ -13,5 +13,11 @@
     
     
   }
+  .centered-link {
+    text-align: center;
+}
 
+.list-group-item {
+    text-align: left; /* Asegura que los nombres de las películas no se centren */
+}
 
