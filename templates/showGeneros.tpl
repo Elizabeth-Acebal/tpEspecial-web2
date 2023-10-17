@@ -4,7 +4,7 @@
     <p class="parrafo p-3 mb-2 bg-danger text-white">Generos</p>
     {foreach from=$generos item=$genero}
         <li class='list-group-item d-flex justify-content-between align-items-center text-light bg-dark rounded-top parrafo '>
-           <a href="peliculasPorGenero/{$genero->id_genero}">{$genero->genero}</a> <a href="peliculaDetalles/{$genero->id_genero}">Detalles</a>
+           <a href="peliculasPorGenero/{$genero->id_genero}">{$genero->genero}</a>
               {if !isset($smarty.session.USUARIO_ID)}
              {else}
                 <div class="ml-auto">
