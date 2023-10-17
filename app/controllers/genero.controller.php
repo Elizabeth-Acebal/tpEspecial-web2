@@ -54,11 +54,13 @@ class GeneroController{
 
    if ((isset($_POST['genero'])) ) {
       $genero = $_POST['genero'];
+      if ((empty($_POST['genero' ] ))  ) {
+        $this->GeneroView->showError("Debe completar todos los campos");
+        return;
+       } 
      $this->GeneroModel->editarGenero($genero, $id_genero);
+    
      header("Location: " . BASE_URL . "generos");
-    }else{
-     $this->GeneroView->showError("Debe completar todos los campos");
-    return;
     }
        
         

@@ -1,5 +1,5 @@
 <head>
-<link rel="stylesheet" href="css/style.css"> 
+<link rel="stylesheet" href="{$BASE_URL}/css/style.css"> 
 </head>
 
 {include file="header.tpl"}

@@ -12,6 +12,7 @@
         function showPeliculas($peliculas){
            // asigno variables al tpl smarty
             $this->smarty->assign('peliculas', $peliculas);
+            $this->smarty->assign('BASE_URL', 'http://localhost/phpmyadmin/index.php?route=/database/structure&db=db_peliculas');
             // mostrar el tpl
             $this->smarty->display('templates/showPeliculas.tpl');
         }
@@ -45,6 +46,7 @@
                 // asigno variables al tpl smarty
                 $this->smarty->assign('generos', $generos);
                 $this->smarty->assign('peliculas', $peliculas);
+                $this->smarty->assign('BASE_URL', 'http://localhost/phpmyadmin/index.php?route=/database/structure&db=db_peliculas');
                 // mostrar el tpl
                 $this->smarty->display('templates/showPeliculas.tpl');
             }
