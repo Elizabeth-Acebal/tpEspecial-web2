@@ -37,7 +37,7 @@
         }
         
         function showError($error){
-            $this->smarty->display('templates/error.tpl');
+            $this->smarty->display('templates/error.tpl', $error);
         } 
 
         function showCartelera($generos,$peliculas) {
