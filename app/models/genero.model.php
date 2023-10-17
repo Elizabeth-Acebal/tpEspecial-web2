@@ -36,7 +36,7 @@ require_once 'config.php';
         // 1. abro conexión a la DB
         // ya esta abierta por el constructor de la clase
         // 2. ejecuto la sentencia (2 subpasos)
-        $query = $this->db->prepare("SELECT * FROM  `generos`");
+        $query = $this->db->prepare("SELECT * FROM  generos");
         $query->execute();
         // 3. obtengo los resultados
         $generos = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
@@ -44,22 +44,22 @@ require_once 'config.php';
         return $generos;
     }
 
-public function agregarGenero($genero) {
-    $query = $this->db->prepare("INSERT INTO generos (genero) VALUES (?)");
-    $query->execute([$genero]);
-    return $this->db->lastInsertId();
-}
+    public function agregarGenero($genero) {
+        $query = $this->db->prepare("INSERT INTO generos (genero) VALUES (?)");
+        $query->execute([$genero]);
+        return $this->db->lastInsertId();
+    }
 
 
-function editarGenero($genero, $id_genero ){
-    $query = $this->db->prepare("UPDATE generos SET `genero`=? WHERE 'id_genero'=?");
-    $query->execute([$genero, $id_genero]);
-}
+    function editarGenero($genero, $id_genero ){
+        $query = $this->db->prepare("UPDATE generos SET `genero`=? WHERE 'id_genero'=?");
+        $query->execute([$genero, $id_genero]);
+    }
 
-function eliminarGenero($id_genero) {
-    $query = $this->db->prepare('DELETE FROM generos WHERE id_genero = ?');
-    $query->execute([$id_genero]);
-}
+    function eliminarGenero($id_genero) {
+        $query = $this->db->prepare('DELETE FROM generos WHERE id_genero = ?');
+        $query->execute([$id_genero]);
+    }
 
 
 }

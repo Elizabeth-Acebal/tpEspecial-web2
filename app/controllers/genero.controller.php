@@ -21,7 +21,7 @@ class GeneroController{
     function showGeneros(){
         $peliculas= $this->PeliculaModel->getPeliculas();
         $generos=$this->GeneroModel->getGeneros();
-        $this->GeneroView->showGeneros( $generos,$peliculas);
+        $this->GeneroView->showGeneros($generos,$peliculas);
 
     }
 

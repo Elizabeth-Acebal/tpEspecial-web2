@@ -29,7 +29,7 @@ class AuthController {
 /**COMPRUEBO QUE NO ESTEN VACIOS */
         if (empty($email) || empty($password)) {
             $this->view->showFormLogin('Faltan datos obligatorios');
-          //  return;
+
         }
 
       // obtengo el usuario
@@ -37,8 +37,7 @@ class AuthController {
 
         //SI EL USUARIO EXISTE Y LA CONTRASEÑA COINCIDE
         //primero le paso la contraseña del usuario y la otra encriptada
-       if ($usuario && password_verify($password, $usuario->password)) {
-            // ACA LO AUTENTIQUE
+        if ($usuario && password_verify($password, $usuario->password)) {
 
             //ARMO LA SESION DEL USUARIO
             
@@ -47,21 +46,18 @@ class AuthController {
             $_SESSION['EMAIL'] = $usuario->email;
             $_SESSION['IS_LOGGED'] = true;
 
-            
-           // AuthHelper::login($usuario);
-            //REDIRIGIMOS AL HOME
             header('Location: ' . BASE_URL . 'peliculas');
         } else {
-           $this->view->showFormLogin('Usuario inválido');
-          
+            $this->view->showFormLogin('Usuario inválido');
+        
         }
     }
 
 
     function logout() {
-       // AuthHelper::logout();
-       session_destroy();
-       header('Location: ' . BASE_URL . "login");    
+    
+        session_destroy();
+        header('Location: ' . BASE_URL . "login");    
     }
 
 }

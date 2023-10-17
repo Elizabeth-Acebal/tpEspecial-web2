@@ -13,7 +13,7 @@
     
         function showGeneros($generos,$peliculas){
              // asigno variables al tpl smarty
-             $this->smarty->assign('generos', $generos);
+            $this->smarty->assign('generos', $generos);
             $this->smarty->assign('peliculas', $peliculas);
             
             // mostrar el tpl
