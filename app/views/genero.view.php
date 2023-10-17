@@ -26,5 +26,9 @@
             $this->smarty->display('templates/editarGenero.tpl');
         }
 
+        function showError($error){
+            $this->smarty->display('templates/error.tpl', $error);
+        } 
+
         
     }

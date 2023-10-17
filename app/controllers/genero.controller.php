@@ -30,12 +30,18 @@ class GeneroController{
     }
 
     function agregarGenero() {
+        $genero = $_POST['genero'];
         // TODO: validar entrada de datos
-        if ((isset($_POST['genero' ] ))  ) {
-            $genero = $_POST['genero'];
-            $id = $this->GeneroModel->agregarGenero($genero);
-            header("Location: " . BASE_URL . "generos");
+        if ((empty($_POST['genero' ] ))  ) {
+            $this->GeneroView->showError("Debe completar todos los campos");
+            return;
         }
+       $id = $this->GeneroModel->agregarGenero($genero);
+        if($id)   {
+              header("Location: " . BASE_URL . "generos");
+        }else{
+            $this->GeneroView->showError("Error al insertar la tarea");
+        }    
     }
 
     function eliminarGenero($id_genero) {
