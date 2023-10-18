@@ -30,26 +30,41 @@ class GeneroController{
     }
 
     function agregarGenero() {
+        $genero = $_POST['genero'];
         // TODO: validar entrada de datos
-        if ((isset($_POST['genero' ] ))  ) {
-            $genero = $_POST['genero'];
-            $id = $this->GeneroModel->agregarGenero($genero);
-            header("Location: " . BASE_URL . "generos");
+        if ((empty($_POST['genero' ] ))  ) {
+            $this->GeneroView->showError("Debe completar todos los campos");
+            return;
         }
+       $id = $this->GeneroModel->agregarGenero($genero);
+        if($id)   {
+              header("Location: " . BASE_URL . "generos");
+        }else{
+            $this->GeneroView->showError("Error al insertar la tarea");
+        }    
     }
 
-    function eliminarGenero($id_genero) {
+    function eliminarGenero($id_genero, $pelicula_id) {
     $this->AuthHelper->checkLogged();   //BARRERA DE SEGURIDAD
-    $this->GeneroModel->eliminarGenero($id_genero);
+    $this->GeneroModel->eliminarGenero($id_genero, $pelicula_id);
     header("Location: " . BASE_URL . "generos");
     }
 
     function editarGenero($id_genero){
-        if ((isset($_POST['genero'])) ) {
-            $genero = $_POST['genero'];
-            $this->GeneroModel->editarGenero($genero, $id_genero);
-            header("Location: " . BASE_URL . "generos");
-        }
+
+   if ((isset($_POST['genero'])) ) {
+      $genero = $_POST['genero'];
+      if ((empty($_POST['genero' ] ))  ) {
+        $this->GeneroView->showError("Debe completar todos los campos");
+        return;
+       } 
+     $this->GeneroModel->editarGenero($genero, $id_genero);
+    
+     header("Location: " . BASE_URL . "generos");
+    }
+       
+        
     }
 
 }
+

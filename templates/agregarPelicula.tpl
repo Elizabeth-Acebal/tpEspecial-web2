@@ -13,3 +13,4 @@
   <button type='submit' class='btn btn-primary parrafo'>Agregar nueva Pelicula</button>
 
 </form>
+

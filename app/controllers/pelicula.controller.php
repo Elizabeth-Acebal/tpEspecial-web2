@@ -39,6 +39,7 @@
     }
 
     function agregarPelicula() {
+        if ((isset($_POST['titulo'])) && (isset($_POST['descripcion'])) && (isset($_POST['director'])) && (isset($_POST['calificacion']))) {
         $titulo = $_POST['titulo'];
         $descripcion = $_POST['descripcion'];
         $director = $_POST['director'];
@@ -55,7 +56,8 @@
             header("Location: " . BASE_URL . "peliculas");  
         }else{
             $this->PeliculaView->showError("Error al insertar la tarea");
-        }  
+        } 
+      }   
     }
     
     function eliminarPelicula($pelicula_id) {
@@ -72,9 +74,16 @@
             $director = $_POST['director'];
             $calificacion = $_POST['calificacion'];
             $id_genero = $_POST['id_genero'];
+            if ((empty($_POST['titulo'])) || (empty($_POST['descripcion'])) || (empty($_POST['director'])) || (empty($_POST['calificacion']))    ) {
+                $this->PeliculaView->showError("Debe completar todos los campos");
+                return;
+                }
             $this->PeliculaModel->editarPelicula($titulo, $descripcion, $director, $calificacion, $id_genero, $pelicula_id);
-            header("Location: " . BASE_URL . "peliculas");
-        }
+            header("Location: " . BASE_URL . "peliculas");        
+        }       
+      
+         
+        
     }
 
     public function showPeliculasPorGenero($id_genero){

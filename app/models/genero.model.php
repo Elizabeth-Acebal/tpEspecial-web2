@@ -51,14 +51,15 @@ require_once 'config.php';
     }
 
 
-    function editarGenero($genero, $id_genero ){
-        $query = $this->db->prepare("UPDATE generos SET `genero`=? WHERE 'id_genero'=?");
+    function editarGenero($genero, $id_genero){
+        $query = $this->db->prepare("UPDATE generos SET `genero`=? WHERE `id_genero`=?");
         $query->execute([$genero, $id_genero]);
     }
 
     function eliminarGenero($id_genero) {
         $query = $this->db->prepare('DELETE FROM generos WHERE id_genero = ?');
         $query->execute([$id_genero]);
+        
     }
 
 
