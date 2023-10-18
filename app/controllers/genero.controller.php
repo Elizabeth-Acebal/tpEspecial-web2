@@ -19,9 +19,9 @@ class GeneroController{
         $this->AuthHelper=new AuthHelper();
     }
     function showGeneros(){
-        $peliculas= $this->PeliculaModel->getPeliculas();
+       
         $generos=$this->GeneroModel->getGeneros();
-        $this->GeneroView->showGeneros($generos,$peliculas);
+        $this->GeneroView->showGeneros($generos,$error=false);
     }
 
     function showFormGenero(){  
@@ -45,9 +45,15 @@ class GeneroController{
     }
 
     function eliminarGenero($id_genero) {
-    $this->AuthHelper->checkLogged();   //BARRERA DE SEGURIDAD
-    $this->GeneroModel->eliminarGenero($id_genero);
-    header("Location: " . BASE_URL . "generos");
+        $this->AuthHelper->checkLogged();   //BARRERA DE SEGURIDAD
+    try{    
+        $this->GeneroModel->eliminarGenero($id_genero);
+        header("Location: " . BASE_URL . "generos");
+    }
+    catch(Exception $e){
+        $genero=$this->GeneroModel->getGeneros();
+        $this->GeneroView->showGeneros($genero, "no se puede eliminar un género que contiene peliculas");
+    }
     }
 
     function editarGenero($id_genero){

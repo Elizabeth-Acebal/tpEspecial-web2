@@ -10,19 +10,20 @@
     
             }
     
-        function showGeneros($generos,$peliculas){
+        function showGeneros($generos, $error){
              // asigno variables al tpl smarty
             $this->smarty->assign('generos', $generos);
-            $this->smarty->assign('peliculas', $peliculas);
+            $this->smarty->assign('error', $error);
             
             // mostrar el tpl
             $this->smarty->display('templates/showGeneros.tpl');
+            
         }
 
-        function showFormGenero($generos,$error=null ) {
+        function showFormGenero($generos) {
             // asigno variables al tpl smarty
             $this->smarty->assign('generos', $generos);
-            $this->smarty->assign('error', $error);
+           
             // mostrar el tpl
             $this->smarty->display('templates/editarGenero.tpl');
         }
