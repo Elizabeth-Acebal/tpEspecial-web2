@@ -44,9 +44,9 @@ class GeneroController{
         }    
     }
 
-    function eliminarGenero($id_genero, $pelicula_id) {
+    function eliminarGenero($id_genero) {
     $this->AuthHelper->checkLogged();   //BARRERA DE SEGURIDAD
-    $this->GeneroModel->eliminarGenero($id_genero, $pelicula_id);
+    $this->GeneroModel->eliminarGenero($id_genero);
     header("Location: " . BASE_URL . "generos");
     }
 
