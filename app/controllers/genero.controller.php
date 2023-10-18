@@ -19,9 +19,9 @@ class GeneroController{
         $this->AuthHelper=new AuthHelper();
     }
     function showGeneros(){
-        $peliculas= $this->PeliculaModel->getPeliculas();
+       
         $generos=$this->GeneroModel->getGeneros();
-        $this->GeneroView->showGeneros($generos,$peliculas);
+        $this->GeneroView->showGeneros($generos,$error=false);
     }
 
     function showFormGenero(){  

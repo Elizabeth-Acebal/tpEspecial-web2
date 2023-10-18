@@ -10,14 +10,14 @@
     
             }
     
-        function showGeneros($generos,$error){
+        function showGeneros($generos, $error=false){
              // asigno variables al tpl smarty
             $this->smarty->assign('generos', $generos);
             $this->smarty->assign('error', $error);
             
             // mostrar el tpl
             $this->smarty->display('templates/showGeneros.tpl');
-            $this->smarty->display('templates/error.tpl');
+            
         }
 
         function showFormGenero($generos) {
